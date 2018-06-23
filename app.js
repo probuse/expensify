@@ -17,6 +17,8 @@ mongoose.connect(dbConfig.url).then(() => {
 app.use(bodyParser.urlencoded({extended: true}));
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
+require('./app/routes/expense.routes.js')(app);
+
 
 app.get('/', (req, res) => {
     res.json({'message': 'etwin once again'});
